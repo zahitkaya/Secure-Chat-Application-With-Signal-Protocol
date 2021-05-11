@@ -47,7 +47,7 @@ public class ChatAdapter extends ArrayAdapter<String>
 
 
         if (strings.size()>position) {
-            if (FirebaseAuth.getInstance().getCurrentUser().getEmail().equals(userList.get(position))){
+            if (!FirebaseAuth.getInstance().getCurrentUser().getEmail().equals(userList.get(position))){
                 View rowView = inflater.inflate(R.layout.chat_message_me, parent, false);
                 TextView your_first_text_view = (TextView) rowView.findViewById(R.id.text_gchat_message_me);
                 TextView your_second_text_view = (TextView) rowView.findViewById(R.id.text_gchat_timestamp_me);
