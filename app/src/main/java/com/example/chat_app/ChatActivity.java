@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -64,6 +66,7 @@ import static com.example.chat_app.rsa.RSAUtils.decrypt;
 public class ChatActivity extends AppCompatActivity {
 
     private EditText messageEditText;
+    private TextView userName;
     private FirebaseAuth mAuth;
     private FirebaseUser firebaseUser;
     private ListView listView;
@@ -89,18 +92,18 @@ public class ChatActivity extends AppCompatActivity {
         database=this.openOrCreateDatabase("Privates",MODE_PRIVATE,null);
 
         messageEditText=findViewById(R.id.messageEditText);
+        userName=findViewById(R.id.chat_tool_bar_user_name);
         mAuth=FirebaseAuth.getInstance();
         listView=findViewById(R.id.messageListView);
 
         String senderEmail=mAuth.getCurrentUser().getEmail();
         String senderUid=mAuth.getCurrentUser().getUid();
 
-
-
         String receiverEmail=getIntent().getStringExtra("RECEIVER_EMAIL");
         String receiverUid=getIntent().getStringExtra("RECEIVER_UID");
         database.execSQL("CREATE TABLE IF NOT EXISTS '"+sortUid(senderUid,receiverUid)+"' (message VARCHAR,receiver VARCHAR, sender VARCHAR,msgTimeStamp VARCHAR)");
 
+        userName.setText(receiverEmail);
 
         if(aliceToBobSession==null) {
 
@@ -329,4 +332,9 @@ public class ChatActivity extends AppCompatActivity {
     }
 
 
+    public void goBack(View view) {
+        Intent intent = new Intent(ChatActivity.this,HomeActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }
