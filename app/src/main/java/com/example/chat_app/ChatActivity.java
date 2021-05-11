@@ -301,7 +301,7 @@ public class ChatActivity extends AppCompatActivity {
 
 
     }
-
+//asdasd
     @RequiresApi(api=Build.VERSION_CODES.N)
     public String sortUid(String sender,String receiver) {
         String result=sender + receiver;
