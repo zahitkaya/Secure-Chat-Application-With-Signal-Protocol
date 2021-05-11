@@ -66,7 +66,7 @@ import static com.example.chat_app.rsa.RSAUtils.decrypt;
 public class ChatActivity extends AppCompatActivity {
 
     private EditText messageEditText;
-    private TextView userName;
+    private TextView userName,chatIsOnline;
     private FirebaseAuth mAuth;
     private FirebaseUser firebaseUser;
     private ListView listView;
@@ -93,6 +93,7 @@ public class ChatActivity extends AppCompatActivity {
 
         messageEditText=findViewById(R.id.messageEditText);
         userName=findViewById(R.id.chat_tool_bar_user_name);
+        chatIsOnline=findViewById(R.id.chat_is_online);
         mAuth=FirebaseAuth.getInstance();
         listView=findViewById(R.id.messageListView);
 
@@ -115,6 +116,12 @@ public class ChatActivity extends AppCompatActivity {
 
                     PreKeyBundleMaker preKeyBundleMaker=snapshot.child("preKeyBundleMaker").getValue(PreKeyBundleMaker.class);
                     bobPreKeyBundle=PreKeyBundleCreatorUtil.createPreKeyBundle(preKeyBundleMaker);
+                    if (snapshot.child("online").getValue(Boolean.class)){
+                        chatIsOnline.setText("Online");
+                    }
+                    else {
+                        chatIsOnline.setText("Offline");
+                    }
 
                     Log.d("TAG","onDataChange: ");
                 }
