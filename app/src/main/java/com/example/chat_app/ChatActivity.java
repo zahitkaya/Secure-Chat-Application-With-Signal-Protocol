@@ -101,9 +101,10 @@ public class ChatActivity extends AppCompatActivity {
 
         String receiverEmail=getIntent().getStringExtra("RECEIVER_EMAIL");
         String receiverUid=getIntent().getStringExtra("RECEIVER_UID");
+        String nameSurname=getIntent().getStringExtra("RECEIVER_NAME");
         database.execSQL("CREATE TABLE IF NOT EXISTS '"+sortUid(senderUid,receiverUid)+"' (message VARCHAR,receiver VARCHAR, sender VARCHAR,msgTimeStamp VARCHAR)");
 
-        userName.setText(receiverEmail);
+        userName.setText(nameSurname);
 
         if(aliceToBobSession==null) {
 
@@ -181,24 +182,6 @@ public class ChatActivity extends AppCompatActivity {
         }
 
             String sortUid=sortUid(receiverUid,senderUid);
-
-        /*
-            adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,messageList) {
-                public View getView(int position,View convertView,ViewGroup parent) {
-                    // Cast the current view as a TextView
-                    TextView tv=(TextView) super.getView(position,convertView,parent);
-
-
-                    if (!userList.isEmpty()) {
-                        if (userList.get(position).equals(receiverEmail)) {
-                                tv.setGravity(Gravity.RIGHT);
-                            }
-                        else tv.setGravity(Gravity.LEFT);
-                    }
-                    return tv;
-                }
-            };
-         */
 
             adapter=new ChatAdapter(ChatActivity.this,messageList,messageTimeList,userList);
 
@@ -301,6 +284,8 @@ public class ChatActivity extends AppCompatActivity {
         selectAllMessagesFromDb(messageList,userList,sortedUid);
 
         adapter.notifyDataSetChanged();
+
+        messageEditText.setText("");
 
 
     }

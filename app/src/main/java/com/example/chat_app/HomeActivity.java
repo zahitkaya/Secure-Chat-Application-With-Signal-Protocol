@@ -109,6 +109,7 @@ public class HomeActivity extends AppCompatActivity {
 
                 String currentUserUid=fAuth.getCurrentUser().getUid();
                 String receiverEmail=subjectLists.get(position);
+                String nameSurname=userNameList.get(position);
                 Intent intent=new Intent(HomeActivity.this,ChatActivity.class);
 
                 dbRef.addChildEventListener(new ChildEventListener() {
@@ -118,6 +119,7 @@ public class HomeActivity extends AppCompatActivity {
                             if (dataSnapshot.getValue().equals(receiverEmail)){
                                 receiverUid=snapshot.getKey();
                                 intent.putExtra("RECEIVER_UID",receiverUid);
+                                intent.putExtra("RECEIVER_NAME",nameSurname);
                                 startActivity(intent);
                             }
                         }
