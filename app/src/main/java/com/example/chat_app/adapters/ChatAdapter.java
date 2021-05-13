@@ -26,8 +26,12 @@ import com.google.firebase.database.ValueEventListener;
 import org.whispersystems.libsignal.SignalProtocolAddress;
 import org.whispersystems.libsignal.protocol.PreKeySignalMessage;
 
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.Date;
 import java.util.List;
 
 import lombok.SneakyThrows;
@@ -69,6 +73,11 @@ public class ChatAdapter extends ArrayAdapter<String>
 
 
         if (strings.size()>position) {
+            Timestamp ts=new Timestamp(Long.parseLong(strings1.get(position)));
+            Date date=ts;
+            DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+
+
             if (!FirebaseAuth.getInstance().getCurrentUser().getEmail().equals(userList.get(position))){
                 View rowView = inflater.inflate(R.layout.chat_message_me, parent, false);
 
@@ -77,7 +86,7 @@ public class ChatAdapter extends ArrayAdapter<String>
                 ImageView isReaded = (ImageView) rowView.findViewById(R.id.isReaded);
                 isReaded.setImageResource(R.drawable.ic_baseline_done_all_24_green);
                 your_first_text_view.setText(strings.get(position));
-                your_second_text_view.setText(strings1.get(position));
+                your_second_text_view.setText(dateFormat.format(date));
                 allTimeStamps.add(strings1.get(position));
                 if (position!=0 && strings1.get(position).equals(strings1.get(position-1))){
                     position++;
@@ -91,7 +100,7 @@ public class ChatAdapter extends ArrayAdapter<String>
                 TextView your_first_text_view = (TextView) rowView.findViewById(R.id.text_gchat_message_other);
                 TextView your_second_text_view = (TextView) rowView.findViewById(R.id.text_gchat_timestamp_other);
                 your_first_text_view.setText(strings.get(position));
-                your_second_text_view.setText(strings1.get(position));
+                your_second_text_view.setText(dateFormat.format(date));
                 allTimeStamps.add(strings1.get(position));
                 if (position!=0 && strings1.get(position).equals(strings1.get(position-1))){
                     rowView.setVisibility(View.GONE);
