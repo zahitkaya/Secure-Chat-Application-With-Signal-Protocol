@@ -61,6 +61,7 @@
                 <ImageView
                     android:layout_width="16dp"
                     android:layout_height="16dp"
+                    android:id="@+id/isReaded"
                     android:background="@drawable/ic_baseline_done_all_24"
                     android:backgroundTint="#DDDDDD" />
             </LinearLayout>

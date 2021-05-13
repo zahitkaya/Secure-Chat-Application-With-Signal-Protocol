@@ -69,6 +69,7 @@ public class ChatActivity extends AppCompatActivity {
     private TextView userName,chatIsOnline;
     private FirebaseAuth mAuth;
     private FirebaseUser firebaseUser;
+    private ImageView isReaded;
     private ListView listView;
     private ArrayList<String> messageList=new ArrayList<>();
     private ArrayList<String> userList=new ArrayList<>();
@@ -96,6 +97,7 @@ public class ChatActivity extends AppCompatActivity {
         chatIsOnline=findViewById(R.id.chat_is_online);
         mAuth=FirebaseAuth.getInstance();
         listView=findViewById(R.id.messageListView);
+        isReaded=findViewById(R.id.isReaded);
 
         String senderEmail=mAuth.getCurrentUser().getEmail();
         String senderUid=mAuth.getCurrentUser().getUid();
@@ -190,7 +192,7 @@ public class ChatActivity extends AppCompatActivity {
 
             String sortUid=sortUid(receiverUid,senderUid);
 
-            adapter=new ChatAdapter(ChatActivity.this,messageList,messageTimeList,userList);
+            adapter=new ChatAdapter(ChatActivity.this,messageList,messageTimeList,userList,sortUid);
 
 
         ArrayList<String> previousCipherText=new ArrayList<>();
