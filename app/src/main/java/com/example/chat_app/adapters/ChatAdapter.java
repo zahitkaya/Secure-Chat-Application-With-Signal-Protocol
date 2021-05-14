@@ -125,7 +125,7 @@ public class ChatAdapter extends ArrayAdapter<String>
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Message message=dataSnapshot.getValue(Message.class);
 
-                    if (message.getMsgTimeStamp().equals(allTimeStamps.get(position))) {
+                    if (strings1.get(position).equals(message.getMsgTimeStamp())) {
                         imageView.setImageResource(R.drawable.ic_baseline_done_all_24);
                     }
 
