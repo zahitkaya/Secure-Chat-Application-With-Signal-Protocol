@@ -12,6 +12,7 @@
         <activity android:name=".ChatActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".WelcomeScreen"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">

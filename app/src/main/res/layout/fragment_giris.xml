@@ -24,8 +24,9 @@
         android:layout_marginStart="35dp"
         android:drawablePadding="10dp"
         android:paddingStart="8dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="35dp"
-        android:textColor="#A52011"
+        android:textColor="@drawable/custom_text_color"
         android:layout_height="45dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/custom_input_email"
@@ -43,7 +44,7 @@
         android:layout_marginEnd="35dp"
         android:paddingStart="8dp"
         android:layout_marginTop="10dp"
-        android:textColor="#A52011"
+        android:textColor="@drawable/custom_text_color"
         android:drawablePadding="10dp"
         android:layout_height="45dp"
         android:drawableStart="@drawable/custom_input_lock"
@@ -63,11 +64,11 @@
         android:layout_marginStart="35dp"
         android:layout_marginEnd="35dp"
         android:layout_marginTop="30dp"
-        android:background="@drawable/custom_input"
+        android:background="@drawable/custom_button"
         android:onClick="login"
         app:layout_constraintTop_toBottomOf="@id/editTextUserPassword"
         android:text="Giriş"
         android:textAllCaps="false"
-        android:textColor="#FFFFFF" />
+        android:textColor="@color/colorPrimary" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
