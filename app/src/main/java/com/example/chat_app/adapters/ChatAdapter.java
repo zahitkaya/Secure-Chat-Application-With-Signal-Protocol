@@ -128,6 +128,9 @@ public class ChatAdapter extends ArrayAdapter<String>
                     if (strings1.get(position).equals(message.getMsgTimeStamp())) {
                         imageView.setImageResource(R.drawable.ic_baseline_done_all_24);
                     }
+                    else{
+                        imageView.setImageResource(R.drawable.ic_baseline_done_all_24_green);
+                    }
 
                 }
 

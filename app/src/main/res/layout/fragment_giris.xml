@@ -1,59 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/black"
+    android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ScrollView
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/imageViewLogo"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:src="@drawable/protect"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="200dp"/>
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    <EditText
+        android:id="@+id/editTextUserName"
+        android:layout_width="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="35dp"
+        android:drawablePadding="10dp"
+        android:paddingStart="8dp"
+        android:layout_marginEnd="35dp"
+        android:textColor="#A52011"
+        android:layout_height="45dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/custom_input_email"
+        app:layout_constraintTop_toBottomOf="@id/imageViewLogo"
+        android:hint="Email Address"
+        android:textColorHint="@android:color/darker_gray"
+        android:inputType="textEmailAddress" />
 
-            <ImageView
-                android:id="@+id/imageViewLogo"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="20dp"
-                android:layout_gravity="center"
-                app:srcCompat="@drawable/chaticon" />
+    <EditText
+        android:id="@+id/editTextUserPassword"
+        android:layout_width="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="35dp"
+        android:paddingStart="8dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#A52011"
+        android:drawablePadding="10dp"
+        android:layout_height="45dp"
+        android:drawableStart="@drawable/custom_input_lock"
+        android:background="@drawable/custom_input"
+        app:layout_constraintTop_toBottomOf="@id/editTextUserName"
+        android:hint="Password"
+        android:textColorHint="@android:color/darker_gray"
+        android:inputType="textPassword" />
 
-            <EditText
-                android:id="@+id/editTextUserName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:hint="Kullanıcı Adınız"
-                android:inputType="textEmailAddress" />
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/custom_input"
+        android:onClick="login"
+        app:layout_constraintTop_toBottomOf="@id/editTextUserPassword"
+        android:text="Giriş"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF" />
 
-            <EditText
-                android:id="@+id/editTextUserPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:hint="Şifreniz"
-                android:inputType="textPassword" />
-
-            <Button
-                android:textAllCaps="false"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
-                android:id="@+id/btnLogin"
-                android:layout_width="match_parent"
-                android:layout_gravity="center"
-                android:background="#C8084FF5"
-                android:textColor="#FFFFFF"
-                android:layout_height="wrap_content"
-                android:onClick="login"
-                android:text="Giriş" />
-
-        </LinearLayout>
-
-    </ScrollView>
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

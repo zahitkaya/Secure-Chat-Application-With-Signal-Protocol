@@ -252,9 +252,6 @@ public class ChatActivity extends AppCompatActivity {
         selectAllMessagesFromDb(messageList,userList,sortUid);
 
         listView.setAdapter(adapter);
-            
-
-
 
 
     }
@@ -295,8 +292,7 @@ public class ChatActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
 
         messageEditText.setText("");
-
-
+        messageEditText.setText("");
     }
 //asdasd
     @RequiresApi(api=Build.VERSION_CODES.N)
