@@ -21,7 +21,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="gargara ustası gargara ustası"
+        android:textColor="@android:color/darker_gray"
+        android:text="User Name"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/userProfilePicture"
@@ -45,6 +46,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@android:color/darker_gray"
         app:layout_constraintStart_toEndOf="@id/isOnline"
         app:layout_constraintTop_toBottomOf="@id/userName"
         app:layout_goneMarginStart="8dp" />
