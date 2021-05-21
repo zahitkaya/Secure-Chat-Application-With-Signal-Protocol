@@ -1,9 +1,7 @@
 package com.example.chat_app.adapters;
 
 import android.content.Context;
-import android.media.Image;
 import android.os.Build;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,21 +14,16 @@ import androidx.annotation.RequiresApi;
 
 import com.example.chat_app.R;
 import com.example.chat_app.model.Message;
-import com.example.chat_app.rsa.Session;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.whispersystems.libsignal.SignalProtocolAddress;
-import org.whispersystems.libsignal.protocol.PreKeySignalMessage;
-
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 

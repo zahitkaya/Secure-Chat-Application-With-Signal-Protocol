@@ -1,12 +1,5 @@
 package com.example.chat_app;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-
-import com.example.chat_app.rsa.RSAKeyPairGenerator;
-import com.example.chat_app.rsa.RSAUtils;
-
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 
 
@@ -21,8 +14,7 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
-import static com.example.chat_app.rsa.RSAUtils.encrypt;
-import static org.junit.Assert.*;
+import static com.example.chat_app.signal.RSAUtils.encrypt;
 
 /**
  * Example local unit test, which will execute on the development machine (host).

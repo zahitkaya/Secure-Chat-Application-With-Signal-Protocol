@@ -10,9 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -25,7 +23,7 @@ import com.example.chat_app.model.KeyPairsMaker;
 import com.example.chat_app.model.Message;
 import com.example.chat_app.model.PreKeyBundleMaker;
 import com.example.chat_app.model.StoreMaker;
-import com.example.chat_app.rsa.Session;
+import com.example.chat_app.signal.Session;
 import com.example.chat_app.util.ByteConverter;
 import com.example.chat_app.util.InMemorySignalProtocolStoreCreatorUtil;
 import com.example.chat_app.util.PreKeyBundleCreatorUtil;
@@ -53,15 +51,12 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
 import lombok.SneakyThrows;
-
-import static com.example.chat_app.rsa.RSAUtils.decrypt;
 
 public class ChatActivity extends AppCompatActivity {
 

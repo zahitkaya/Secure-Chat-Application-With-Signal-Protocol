@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package com.example.chat_app.rsa;
+package com.example.chat_app.signal;
 
 import org.whispersystems.libsignal.InvalidKeyException;
 import org.whispersystems.libsignal.SessionBuilder;

@@ -1,4 +1,4 @@
-package com.example.chat_app.rsa;
+package com.example.chat_app.signal;
 
 
 import android.database.sqlite.SQLiteDatabase;
@@ -8,9 +8,6 @@ import androidx.annotation.RequiresApi;
 
 import com.example.chat_app.model.KeyPairsMaker;
 import com.example.chat_app.util.ByteConverter;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
 
 import org.whispersystems.libsignal.IdentityKey;
 import org.whispersystems.libsignal.IdentityKeyPair;
@@ -26,9 +23,7 @@ import org.whispersystems.libsignal.state.SignedPreKeyRecord;
 import org.whispersystems.libsignal.state.impl.InMemorySignalProtocolStore;
 import org.whispersystems.libsignal.util.KeyHelper;
 
-import java.io.IOException;
 import java.util.Base64;
-import java.util.Random;
 
 import lombok.SneakyThrows;
 
