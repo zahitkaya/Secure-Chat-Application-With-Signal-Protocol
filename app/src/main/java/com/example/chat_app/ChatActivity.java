@@ -51,6 +51,7 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -257,7 +258,7 @@ public class ChatActivity extends AppCompatActivity {
         String receiverEmail=getIntent().getStringExtra("RECEIVER_EMAIL");
 
         String sortedUid=sortUid(receiverUid,mAuth.getUid().toString());
-        String timestamp=Long.toString(new Date().getTime()); //mesajın zamanı için
+        String timestamp=Long.toString(new Date(System.currentTimeMillis() + TimeUnit.HOURS.toMillis(3)).getTime()); //mesajın zamanı için türkiye saati için 3 saat ekledik
 
         String messageText=messageEditText.getText().toString();
      //   String cipherMessage=Base64.getEncoder().encodeToString(encrypt(messageText,receiverPublicKey));
