@@ -10,11 +10,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
 import com.example.chat_app.R;
 import com.example.chat_app.model.Message;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -89,7 +91,7 @@ public class ChatAdapter extends ArrayAdapter<String>
                 TextView historyTextView=(TextView) rowView.findViewById(R.id.historyMessageMe);
                 ImageView isReaded = (ImageView) rowView.findViewById(R.id.isReaded);
 
-                isReaded.setImageResource(R.drawable.ic_baseline_done_all_24_green);
+                isReaded.setImageResource(R.drawable.ic_baseline_done_all_24);
 
                 your_first_text_view.setText(strings.get(position));
                 your_second_text_view.setText(dateFormat.format(date));
@@ -131,7 +133,8 @@ public class ChatAdapter extends ArrayAdapter<String>
 
     }
 
-    public void findIsReadedMessages(int position,ImageView imageView){
+    public void findIsReadedMessages(int position,ImageView imageView) {
+        /*
         FirebaseDatabase.getInstance().getReference("Messages").child(sortedUid).addValueEventListener(new ValueEventListener() {
 
             @SneakyThrows
@@ -159,6 +162,39 @@ public class ChatAdapter extends ArrayAdapter<String>
             }
         });
 
+         */
+        FirebaseDatabase.getInstance().getReference("Messages").child(sortedUid).addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot,@Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot,@Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                Message message=snapshot.getValue(Message.class);
+                if (strings1.get(position).equals(message.getMsgTimeStamp())) {
+                    imageView.setImageResource(R.drawable.ic_baseline_done_all_24);
+                }
+                else{
+                    imageView.setImageResource(R.drawable.ic_baseline_done_all_24_green);
+                }
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot,@Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
 
