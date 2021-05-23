@@ -20,10 +20,8 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @IgnoreExtraProperties
 public class StoreMaker implements Serializable {
-    //InMemorySignalProtocolStore(IdentityKeyPair identityKeyPair, int registrationId)
-    //IdentityKeyPair(IdentityKey publicKey, ECPrivateKey privateKey)
-    //public IdentityKey(ECPublicKey publicKey)
     String storeIdentityKey;
     String storePrivateKey;
     int registrationId;
 }
+
