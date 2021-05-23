@@ -67,8 +67,18 @@ public class ChatAdapter extends ArrayAdapter<String>
 
         if (strings.size()>position) {
             Timestamp ts=new Timestamp(Long.parseLong(strings1.get(position)));
+            Timestamp prevTimeStamp=null;
+            Date prevDate=null;
+            if(position!=0) {
+                prevTimeStamp=new Timestamp(Long.parseLong(strings1.get(position-1)));
+                prevDate=prevTimeStamp;
+            }
+
+
             Date date=ts;
             DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+
+            DateFormat historyFormat=new SimpleDateFormat("dd.MM.yyyy");
 
 
             if (!FirebaseAuth.getInstance().getCurrentUser().getEmail().equals(userList.get(position))){
@@ -76,10 +86,19 @@ public class ChatAdapter extends ArrayAdapter<String>
 
                 TextView your_first_text_view = (TextView) rowView.findViewById(R.id.text_gchat_message_me);
                 TextView your_second_text_view = (TextView) rowView.findViewById(R.id.text_gchat_timestamp_me);
+                TextView historyTextView=(TextView) rowView.findViewById(R.id.historyMessageMe);
                 ImageView isReaded = (ImageView) rowView.findViewById(R.id.isReaded);
+
                 isReaded.setImageResource(R.drawable.ic_baseline_done_all_24_green);
+
                 your_first_text_view.setText(strings.get(position));
                 your_second_text_view.setText(dateFormat.format(date));
+                historyTextView.setText(historyFormat.format(date));
+
+                if (position!=0 && historyFormat.format(date).equals(historyFormat.format(prevDate))){
+                    historyTextView.setVisibility(View.GONE);
+                }
+
                 allTimeStamps.add(strings1.get(position));
                 if (position!=0 && strings1.get(position).equals(strings1.get(position-1))){
                     position++;
@@ -92,8 +111,13 @@ public class ChatAdapter extends ArrayAdapter<String>
                 View rowView = inflater.inflate(R.layout.chat_message_other, parent, false);
                 TextView your_first_text_view = (TextView) rowView.findViewById(R.id.text_gchat_message_other);
                 TextView your_second_text_view = (TextView) rowView.findViewById(R.id.text_gchat_timestamp_other);
+                TextView historyTextView=(TextView) rowView.findViewById(R.id.historyMessageMe);
                 your_first_text_view.setText(strings.get(position));
                 your_second_text_view.setText(dateFormat.format(date));
+                historyTextView.setText(historyFormat.format(date));
+                if (historyFormat.format(date).equals(historyFormat.format(prevDate))){
+                    historyTextView.setVisibility(View.GONE);
+                }
                 allTimeStamps.add(strings1.get(position));
                 if (position!=0 && strings1.get(position).equals(strings1.get(position-1))){
                     rowView.setVisibility(View.GONE);
