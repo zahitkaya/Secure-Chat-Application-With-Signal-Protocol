@@ -113,11 +113,11 @@ public class ChatAdapter extends ArrayAdapter<String>
                 View rowView = inflater.inflate(R.layout.chat_message_other, parent, false);
                 TextView your_first_text_view = (TextView) rowView.findViewById(R.id.text_gchat_message_other);
                 TextView your_second_text_view = (TextView) rowView.findViewById(R.id.text_gchat_timestamp_other);
-                TextView historyTextView=(TextView) rowView.findViewById(R.id.historyMessageMe);
+                TextView historyTextView=(TextView) rowView.findViewById(R.id.historyMessageOther);
                 your_first_text_view.setText(strings.get(position));
                 your_second_text_view.setText(dateFormat.format(date));
                 historyTextView.setText(historyFormat.format(date));
-                if (historyFormat.format(date).equals(historyFormat.format(prevDate))){
+                if (position!=0 && historyFormat.format(date).equals(historyFormat.format(prevDate))){
                     historyTextView.setVisibility(View.GONE);
                 }
                 allTimeStamps.add(strings1.get(position));
