@@ -7,11 +7,18 @@
     android:layout_marginStart="8dp"
     android:layout_marginTop="16dp">
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="sample"
         android:id="@+id/historyMessageOther"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/card_gchat_message_other"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="155454"
         tools:ignore="MissingConstraints"></TextView>
 
     <androidx.cardview.widget.CardView
@@ -19,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="20dp"
         app:cardBackgroundColor="#eef1f6"
         app:cardCornerRadius="12dp"
         app:cardElevation="0dp"

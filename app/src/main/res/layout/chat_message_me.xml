@@ -12,13 +12,19 @@
         android:layout_height="wrap_content"
         android:text="sample"
         android:id="@+id/historyMessageMe"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/card_gchat_message_me"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="155454"
         tools:ignore="MissingConstraints"></TextView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_gchat_message_me"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         app:cardBackgroundColor="@color/black"
         app:cardCornerRadius="12dp"
@@ -27,8 +33,6 @@
         app:cardUseCompatPadding="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-
 
         <LinearLayout
             android:id="@+id/layout_gchat_container_me"
